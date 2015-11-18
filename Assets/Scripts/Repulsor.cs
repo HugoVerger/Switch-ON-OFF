@@ -5,16 +5,17 @@ public class Repulsor : MonoBehaviour {
 
 	public bool repulsor;
 	public int force;
-	public GameObject topCollider;
+	private GameObject topCollider;
 	private Vector2 angleRepulsor;
 	private Vector2 angleMagnet;
 	
 	void Start() {
-		topCollider.SetActive (false);
 		angleRepulsor = new Vector2(Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad) * (-1),
 		                            Mathf.Cos (transform.eulerAngles.z * Mathf.Deg2Rad)).normalized;
 		angleMagnet = new Vector2(Mathf.Sin(transform.eulerAngles.z * Mathf.Deg2Rad),
 		                          Mathf.Cos (transform.eulerAngles.z * Mathf.Deg2Rad) * (-1)).normalized;
+		topCollider = transform.GetChild (0).gameObject;
+		topCollider.SetActive (false);
 	}
 	
 	private void OnTriggerStay2D(Collider2D other)
@@ -38,8 +39,8 @@ public class Repulsor : MonoBehaviour {
 	{
 		if (other.tag == "Player" && repulsor)
 		{
-			topCollider.SetActive(false);
 			other.GetComponent<Rigidbody2D>().AddForce(angleMagnet * force/10 * Time.deltaTime, ForceMode2D.Impulse);
+			topCollider.SetActive(false);
 		}
 	}
 }
