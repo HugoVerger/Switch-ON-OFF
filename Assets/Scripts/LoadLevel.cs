@@ -2,7 +2,7 @@
 using System.Collections;
 
 
-public class UIButtonLevelLoad : MonoBehaviour {
+public class LoadLevel : MonoBehaviour {
 	
 	public string LevelToLoad;
 	
