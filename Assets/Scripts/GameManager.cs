@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
 	public static GameManager gm;
-
-	[Tooltip("If not set, the player will default to the gameObject tagged as Player.")]
 	public GameObject player;
 
 	private enum gameStates {Playing, BeatLevel, GameOver};
@@ -56,7 +54,6 @@ public class GameManager : MonoBehaviour {
 				// nothing
 				break;
 		}
-
 	}
 
 	public void beatLevel() {
