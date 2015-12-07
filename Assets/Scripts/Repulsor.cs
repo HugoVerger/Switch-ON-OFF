@@ -17,6 +17,14 @@ public class Repulsor : MonoBehaviour {
 		topCollider = transform.GetChild (0).gameObject;
 		topCollider.SetActive (false);
 	}
+
+	void OnMouseOver()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			repulsor = !repulsor;
+		}
+	}
 	
 	private void OnTriggerStay2D(Collider2D other)
 	{

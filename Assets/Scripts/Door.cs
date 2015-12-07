@@ -17,6 +17,14 @@ public class Door : MonoBehaviour {
 		anim = GetComponent<Animator> ();
 	}
 
+	void OnMouseOver()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			changeState = !changeState;
+		}
+	}
+
 	void Update () {
 		if (changeState != previousState)
 		{
