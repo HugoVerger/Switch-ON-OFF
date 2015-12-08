@@ -3,8 +3,6 @@ using System.Collections;
 
 public class Door : MonoBehaviour {
 
-	public bool changeState;
-	private bool previousState;
 	private bool openDoor;
 	private Animator anim;
 
@@ -13,20 +11,12 @@ public class Door : MonoBehaviour {
 			openDoor = true;
 		else
 			openDoor = false;
-		previousState = changeState;
 		anim = GetComponent<Animator> ();
 	}
 
 	void OnMouseOver()
 	{
 		if (Input.GetMouseButtonDown(0))
-		{
-			changeState = !changeState;
-		}
-	}
-
-	void Update () {
-		if (changeState != previousState)
 		{
 			if(openDoor) {
 				anim.SetTrigger("doorClose");
@@ -36,7 +26,6 @@ public class Door : MonoBehaviour {
 				anim.SetTrigger("doorOpen");
 				openDoor = true;
 			}
-		}		
-		previousState = changeState;
+		}
 	}
 }

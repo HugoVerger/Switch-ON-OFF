@@ -45,7 +45,6 @@ GameObject:
   - 4: {fileID: 442364}
   - 212: {fileID: 21274496}
   - 61: {fileID: 6123384}
-  - 50: {fileID: 5090170}
   m_Layer: 0
   m_Name: Piston Top
   m_TagString: Untagged
@@ -91,22 +90,6 @@ Transform:
   - {fileID: 442364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5090170
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157410}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 5
 --- !u!61 &6104226
 BoxCollider2D:
   m_ObjectHideFlags: 1

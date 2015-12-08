@@ -20,9 +20,8 @@ public class GameManager : MonoBehaviour {
 		if (gm == null) 
 			gm = gameObject.GetComponent<GameManager>();
 
-		if (player == null) {
+		if (player == null)
 			player = GameObject.FindWithTag("Player");
-		}
 
 		beatLevelCanvas.SetActive (false);
 	}

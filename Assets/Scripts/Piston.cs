@@ -3,19 +3,18 @@ using System.Collections;
 
 public class Piston : MonoBehaviour {
 
-	public bool extend;
 	public int force;
-	private bool previousState;
+	private bool extended;
 	private Animator anim;
 	
 	void Start() {
-		previousState = extend;
+		extended = false;
 		anim = GetComponent<Animator> ();
 	}
 
-	private void OnTriggerStay2D(Collider2D other)
+	void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.tag == "Player" && extend)
+		if (other.tag == "Player" && !extended)
 		{
 			other.GetComponent<Rigidbody2D>().AddForce(Vector2.up * force * Time.deltaTime);
 		}
@@ -25,20 +24,14 @@ public class Piston : MonoBehaviour {
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			extend = !extend;
-		}
-	}
-
-	void Update () {
-		if (extend != previousState)
-		{
-			if(extend) {
+			if(!extended) {
 				anim.SetTrigger("pistonExtend");
+				extended = true;
 			}
 			else {
 				anim.SetTrigger("pistonRetract");
+				extended = false;
 			}
-		}		
-		previousState = extend;
+		}
 	}
 }
