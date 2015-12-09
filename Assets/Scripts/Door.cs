@@ -8,9 +8,9 @@ public class Door : MonoBehaviour {
 
 	void Start() {
 		if (transform.rotation.eulerAngles.z == 0 || (transform.rotation.eulerAngles.z < 181 && transform.rotation.eulerAngles.z > 179))
-			openDoor = true;
-		else
 			openDoor = false;
+		else
+			openDoor = true;
 		anim = GetComponent<Animator> ();
 	}
 

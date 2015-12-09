@@ -5,7 +5,10 @@ public class Repulsor : MonoBehaviour {
 
 	public bool repulsor;
 	public int force;
+	public Sprite spriteOn;
+	public Sprite spriteOff;
 	private GameObject topCollider;
+	private SpriteRenderer sr;
 	private Vector2 angleRepulsor;
 	private Vector2 angleMagnet;
 	
@@ -16,6 +19,11 @@ public class Repulsor : MonoBehaviour {
 		                          Mathf.Cos (transform.eulerAngles.z * Mathf.Deg2Rad) * (-1)).normalized;
 		topCollider = transform.GetChild (0).gameObject;
 		topCollider.SetActive (false);
+		sr = GetComponent<SpriteRenderer>();
+		if (repulsor)
+			sr.sprite = spriteOn;
+		else
+			sr.sprite = spriteOff;
 	}
 
 	void OnMouseOver()
@@ -23,6 +31,10 @@ public class Repulsor : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0))
 		{
 			repulsor = !repulsor;
+			if (repulsor)
+				sr.sprite = spriteOn;
+			else
+				sr.sprite = spriteOff;
 		}
 	}
 	

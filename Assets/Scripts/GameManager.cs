@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-
 public class GameManager : MonoBehaviour {
 
 	public static GameManager gm;
